@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>META AI | مساعدك الذكي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6faf8;--surface:#fff;--side:#0b5d43;--sidetext:#e8f5ef;--text:#14231d;--muted:#6b7f77;--accent:#0f7b5a;--accent2:#0b5d43;--bot:#fff;--border:#dbe8e2;--chip:#e6f4ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a16;--surface:#16241e;--side:#08382a;--text:#e8f2ed;--muted:#8fa69c;--accent:#1aa57a;--bot:#1b2d26;--border:#27403560;--chip:#1d3329}}
+:root[data-theme="dark"]{--bg:#0f1a16;--surface:#16241e;--side:#08382a;--text:#e8f2ed;--muted:#8fa69c;--accent:#1aa57a;--bot:#1b2d26;--border:#274035;--chip:#1d3329}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;height:100%;font-family:Tajawal,system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--text)}
+button{font:inherit;cursor:pointer}
+.hide{display:none!important}
+#login{height:100%;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(160deg,var(--side),var(--accent))}
+.card{background:var(--surface);border-radius:24px;padding:32px 26px;width:100%;max-width:400px;text-align:center;box-shadow:0 20px 50px #0004}
+.logo{width:68px;height:68px;border-radius:20px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:26px;margin:0 auto 14px}
+.card h1{margin:0 0 6px;font-size:28px;letter-spacing:1px}
+.card p{margin:0 0 22px;color:var(--muted);line-height:1.7}
+.card input{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:14px;font:inherit;font-size:16px;background:var(--bg);color:var(--text);text-align:center;margin-bottom:12px}
+.card input:focus{outline:2px solid var(--accent);border-color:transparent}
+.pri{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:13px 20px;font-weight:700;font-size:16px;width:100%}
+.pri:hover{background:var(--accent2)}
+#app{height:100%;display:flex}
+aside{width:290px;background:var(--side);color:var(--sidetext);display:flex;flex-direction:column;padding:14px;flex-shrink:0;transition:transform .25s}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;margin-bottom:14px}
+.brand .logo{width:38px;height:38px;border-radius:11px;font-size:15px;margin:0;background:#fff;color:var(--side)}
+#newchat{background:#fff;color:var(--side);border:0;border-radius:12px;padding:11px;font-weight:700;margin-bottom:12px}
+#list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:4px}
+.it{display:flex;align-items:center;gap:6px;padding:9px 10px;border-radius:10px;cursor:pointer;font-size:14px}
+.it:hover,.it.on{background:#ffffff22}
+.it span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.it button{background:none;border:0;color:inherit;opacity:.6;font-size:15px;padding:2px 4px}
+.it button:hover{opacity:1}
+.user{border-top:1px solid #ffffff30;padding-top:12px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.user button{background:none;border:1px solid #ffffff50;color:inherit;border-radius:8px;padding:4px 10px;font-size:12px}
+main{flex:1;display:flex;flex-direction:column;min-width:0}
+header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface);font-weight:700}
+#menu{display:none;background:none;border:0;font-size:24px;color:var(--text);padding:0 4px}
+#log{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px}
+.m{max-width:min(760px,88%);padding:11px 15px;border-radius:18px;line-height:1.85;white-space:pre-wrap;word-wrap:break-word;font-size:16px}
+.u{align-self:flex-start;background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+.b{align-self:flex-end;background:var(--bot);border:1px solid var(--border);border-bottom-left-radius:4px}
+.welcome{margin:auto;text-align:center;max-width:560px}
+.welcome h2{font-size:26px;margin:0 0 8px}
+.welcome p{color:var(--muted);margin:0 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chips button{background:var(--chip);color:var(--text);border:1px solid var(--border);border-radius:20px;padding:8px 14px;font-size:14px}
+.chips button:hover{border-color:var(--accent)}
+.bar{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--border);background:var(--surface)}
+textarea{flex:1;resize:none;border:1.5px solid var(--border);background:var(--bg);color:var(--text);border-radius:14px;padding:11px 14px;font:inherit;font-size:16px;max-height:130px}
+textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+#send{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:0 20px;font-weight:700}
+#send:disabled{opacity:.5}
+pre{background:#0b2a20;color:#d9f5e8;padding:10px 12px;border-radius:10px;overflow-x:auto;margin:8px 0;font-size:14px;text-align:left;white-space:pre}
+code{background:var(--chip);padding:1px 6px;border-radius:6px;font-size:.92em}
+pre code{background:none;padding:0}
+.cp{display:block;margin-top:6px;background:none;border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:2px 10px;font-size:12px}
+#shade{display:none}
+@media (max-width:760px){
+aside{position:fixed;top:0;bottom:0;right:0;z-index:20;transform:translateX(100%);padding-top:calc(14px + env(safe-area-inset-top,0px))}
+aside.open{transform:none}
+#menu{display:block}
+#shade.show{display:block;position:fixed;inset:0;background:#0006;z-index:15}
+.m{max-width:92%}
+}
+</style>
+</head>
+<body>
+<section id="login">
+<div class="card">
+<div class="logo">M</div>
+<h1>META AI</h1>
+<p>مساعدك الذكي باللغة العربية.<br>اكتب اسمك وابدأ المحادثة، بدون تسجيل حساب.</p>
+<input id="nm" maxlength="30" placeholder="اسمك" autocomplete="off">
+<button class="pri" id="go">ابدأ المحادثة</button>
+</div>
+</section>
+
+<div id="app" class="hide">
+<aside id="side">
+<div class="brand"><div class="logo">M</div>META AI</div>
+<button id="newchat">＋ محادثة جديدة</button>
+<div id="list"></div>
+<div class="user"><span id="who"></span><button id="out">تغيير الاسم</button></div>
+</aside>
+<div id="shade"></div>
+<main>
+<header><button id="menu" aria-label="القائمة">☰</button><span id="title">META AI</span></header>
+<div id="log"></div>
+<div class="bar">
+<textarea id="in" rows="1" placeholder="اكتب رسالتك هنا..."></textarea>
+<button id="send">إرسال</button>
+</div>
+</main>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+let name=store.get('meta_name')||'',chats=[],cur=null,busy=false,sample=null;
+try{chats=JSON.parse(store.get('meta_chats')||'[]')}catch(e){chats=[]}
+const save=()=>store.set('meta_chats',JSON.stringify(chats));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const SUG=['اشرح لي الذكاء الاصطناعي ببساطة','ساعدني أكتب رسالة رسمية','اقترح لي أفكار لمشروع صغير','لخّص لي كتاب مفيد'];
+
+sample=async(msgs,o)=>{
+  const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:msgs})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(j.error||'error');
+  if(o&&o.onText)o.onText({text:j.text});
+  return {text:j.text};
+};
+
+function start(){
+  $('login').classList.add('hide');$('app').classList.remove('hide');
+  $('who').textContent='👤 '+name;
+  cur=chats.length?chats[0].id:null;
+  if(!cur)newChat();else render();
+}
+$('go').onclick=()=>{const v=$('nm').value.trim();if(!v){$('nm').focus();return}name=v;store.set('meta_name',v);start()};
+$('nm').addEventListener('keydown',e=>{if(e.key==='Enter')$('go').click()});
+$('out').onclick=()=>{if(confirm('تغيير الاسم؟ محادثاتك المحفوظة ستبقى.')){store.del('meta_name');location.reload()}};
+
+function newChat(){
+  const c=chats.find(x=>!x.msgs.length);
+  if(c){cur=c.id}else{const n={id:uid(),title:'محادثة جديدة',msgs:[]};chats.unshift(n);cur=n.id;save()}
+  render();closeSide();$('in').focus();
+}
+$('newchat').onclick=newChat;
+const getCur=()=>chats.find(c=>c.id===cur);
+
+function render(){
+  const list=$('list');list.innerHTML='';
+  chats.forEach(c=>{
+    const d=document.createElement('div');d.className='it'+(c.id===cur?' on':'');
+    const s=document.createElement('span');s.textContent=c.title;
+    const x=document.createElement('button');x.textContent='🗑';x.title='حذف';
+    x.onclick=e=>{e.stopPropagation();if(!confirm('حذف هذه المحادثة؟'))return;chats=chats.filter(k=>k.id!==c.id);save();if(cur===c.id){chats.length?cur=chats[0].id:0;if(!chats.length){newChat();return}}render()};
+    d.onclick=()=>{if(busy)return;cur=c.id;render();closeSide()};
+    d.append(s,x);list.appendChild(d);
+  });
+  const c=getCur(),log=$('log');log.innerHTML='';
+  $('title').textContent=c?c.title:'META AI';
+  if(!c||!c.msgs.length){
+    const w=document.createElement('div');w.className='welcome';
+    w.innerHTML='<h2></h2><p>كيف أقدر أساعدك اليوم؟</p><div class="chips"></div>';
+    w.querySelector('h2').textContent='أهلاً '+name+' 👋';
+    SUG.forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>{$('in').value=t;send()};w.querySelector('.chips').appendChild(b)});
+    log.appendChild(w);
+  }else c.msgs.forEach(m=>bubble(m.role,m.content));
+  log.scrollTop=log.scrollHeight;
+}
+function bubble(role,text){
+  const d=document.createElement('div');d.className='m '+(role==='user'?'u':'b');
+  if(role==='user')d.textContent=text;else{d.innerHTML=md(text);if(text!=='...'){const b=document.createElement('button');b.className='cp';b.textContent='نسخ';b.onclick=()=>{try{navigator.clipboard.writeText(text)}catch(e){}b.textContent='تم ✓';setTimeout(()=>b.textContent='نسخ',1200)};d.appendChild(b)}}
+  $('log').appendChild(d);$('log').scrollTop=$('log').scrollHeight;return d;
+}
+
+function md(s){s=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');s=s.replace(/```(?:\w+)?\n?([\s\S]*?)```/g,(m,c)=>'<pre dir="ltr">'+c.trim()+'</pre>');return s.replace(/`([^`\n]+)`/g,'<code>$1</code>').replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>')}
+const SYSP=()=>'أنت META AI، مساعد ذكاء اصطناعي عربي ودود ومفيد. اسم المستخدم: '+name+'. رد دائماً بالعربية الواضحة (أو بلغة المستخدم إذا كتب بلغة أخرى)، بأسلوب مهذب ومختصر ومنظّم.\n\n';
+async function send(){
+  const text=$('in').value.trim();
+  if(!text||busy)return;
+  let c=getCur();if(!c){newChat();c=getCur()}
+  busy=true;$('send').disabled=true;$('in').value='';
+  if(!c.msgs.length){c.title=text.slice(0,40);}
+  c.msgs.push({role:'user',content:text});save();render();
+  const out=bubble('assistant','...');
+  const msgs=c.msgs.slice(-30).map(m=>({role:m.role,content:m.content}));
+  msgs[0]={role:'user',content:SYSP()+msgs[0].content};
+  if(msgs[0].role!=='user')msgs.unshift({role:'user',content:SYSP()+'مرحباً'});
+  try{
+    const r=await sample(msgs,{onText:({text})=>{out.innerHTML=md(text);$('log').scrollTop=$('log').scrollHeight}});
+    c.msgs.push({role:'assistant',content:r.text});save();out.innerHTML=md(r.text);
+  }catch(err){
+    out.textContent='حصلت مشكلة مؤقتة، حاول مرة أخرى.';
+    c.msgs.pop();save();
+  }
+  busy=false;$('send').disabled=false;render();$('in').focus();
+}
+$('send').onclick=send;
+$('in').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
+$('in').addEventListener('input',e=>{e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,130)+'px'});
+function closeSide(){$('side').classList.remove('open');$('shade').classList.remove('show')}
+$('menu').onclick=()=>{$('side').classList.add('open');$('shade').classList.add('show')};
+$('shade').onclick=closeSide;
+if(name)start();
+</script>
+</body>
+</html>
